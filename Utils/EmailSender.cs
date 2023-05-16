@@ -10,7 +10,7 @@ namespace MonashUWCC.Utils
     public class EmailSender
     {
         
-        private const String API_KEY = "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";
+        private const String API_KEY = "";
 
 
         public void Send(String toEmail, String subject, String contents)
