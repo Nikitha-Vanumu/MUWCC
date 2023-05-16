@@ -1,0 +1,183 @@
+﻿@model IEnumerable<MonashUWCC.Models.Captain>
+
+
+@{
+    ViewBag.Title = "Index";
+
+}
+
+<div id="myCarousel" class="carousel slide" data-ride="carousel">
+    
+    <!-- Wrapper for slides -->
+    <div class="carousel-inner">
+
+        <div class="item active">
+            <img src="~/img/bg-img/105.jpeg">
+        </div>
+
+       
+    </div>
+</div>
+<h2>List of Captains</h2>
+
+<p>
+    @if (User.Identity.Name.Equals("rajeshwari.nikitha@gmail.com"))
+    {
+        @Html.ActionLink("Create New", "Create")
+    }
+    </p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.CaptainName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ViceCaptainName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Team)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Year)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CaptainName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ViceCaptainName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Team)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Year)
+                </td>
+                <td>
+                    @if (User.Identity.Name.Equals("rajeshwari.nikitha@gmail.com"))
+                    {
+                        @Html.ActionLink("Edit", "Edit", new { id = item.Id }) 
+                    @Html.ActionLink("Details", "Details", new { id = item.Id }) 
+                    @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+                    }
+                </td>
+            </tr>
+        }
+
+    </tbody>
+
+</table>
+
+@section Scripts {
+
+    @Scripts.Render("~/Scripts/DataTables/jquery.dataTables.js")
+    @Scripts.Render("~/Scripts/DataTables/dataTables.bootstrap.js")
+    <script>
+        $(document).ready(function () {
+            $('.table').DataTable();
+        });
+    </script>
+}
+
+
+<link href="~/Scripts/captain.css" rel="stylesheet" />
+
+
+<section class="cap-heading">
+    <h1> Captain's & Vice - Captain's Gallery</h1>
+</section>
+
+<section class="wrapper">
+    <div class="card">
+        <img src="~/img/cap-img/suki.jpeg" />
+        <div class="info">
+            <h1> Sukiana Ali </h1>
+            <p> Captain(2017 - Present)</p>
+
+        </div>
+    </div>
+
+    <div class="card">
+
+        <img src="~/img/cap-img/saju.jpeg" />
+        <div class="info">
+            <h1> Sajani Wijekoon</h1>
+            <p> Vice-Captain(2017 - Present)</p>
+
+        </div>
+    </div>
+    <div class="card">
+
+        <img src="~/img/cap-img/induni.jpeg" />
+        <div class="info">
+            <h1> Induni de Silva </h1>
+            <p>Captain(2020)</p>
+        </div>
+
+    </div>
+</section>
+<br>
+<section class="wrapper">
+
+    <div class="card">
+        <img src="~/img/cap-img/Randy.jpeg" />
+        <div class="info">
+            <h1> Randini Dissanayake </h1>
+            <p> Captain(2020)</p>
+
+        </div>
+    </div>
+
+    <div class="card">
+
+        <img src="~/img/cap-img/Rush.jpeg" />
+        <div class="info">
+            <h1> Rushani De Cruze</h1>
+            <p> Vice-Captain(2020)</p>
+
+        </div>
+    </div>
+
+    <div class="card">
+
+        <img src="~/img/cap-img/clare.jpeg" />
+        <div class="info">
+            <h1> Clare Haysom </h1>
+            <p>Former Captain(2019)</p>
+        </div>
+
+    </div>
+</section>
+<br>
+
+<section class="wrapper">
+
+
+
+
+    <div class="card">
+        <img src="~/img/cap-img/dom.jpeg" />
+        <div class="info">
+            <h1> Dom McCusker </h1>
+            <p> Former Captain(2016)</p>
+
+        </div>
+    </div>
+
+    <div class="card">
+        <img src="~/img/cap-img/cat.jpeg" />
+        <div class="info">
+            <h1> Catherine Jones </h1>
+            <p> Former Captain(2016)</p>
+
+        </div>
+    </div>
+</section>

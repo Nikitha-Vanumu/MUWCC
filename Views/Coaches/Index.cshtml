@@ -1,0 +1,125 @@
+﻿@model IEnumerable<MonashUWCC.Models.Coach>
+
+@{
+    ViewBag.Title = "Index";
+    <div id="myCarousel" class="carousel slide" data-ride="carousel">
+
+        <!-- Wrapper for slides -->
+        <div class="carousel-inner">
+
+            <div class="item active">
+                <img src="~/img/bg-img/102.jpeg">
+            </div>
+
+
+        </div>
+    </div>
+}
+
+<h2>List of Coaches </h2>
+
+<p>
+    @if (User.Identity.Name.Equals("rajeshwari.nikitha@gmail.com"))
+    {
+        @Html.ActionLink("Create New", "Create")
+    }
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.CoachName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Team)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DateOfJoining)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CoachName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Team)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DateOfJoining)
+                </td>
+                <td>
+                    @if (User.Identity.Name.Equals("rajeshwari.nikitha@gmail.com"))
+                    {
+
+                        @Html.ActionLink("Edit", "Edit", new { id = item.CoachId })
+                        @Html.ActionLink("Details", "Details", new { id = item.CoachId })
+                        @Html.ActionLink("Delete", "Delete", new { id = item.CoachId })
+                    }
+                </td>
+            </tr>
+        }
+
+    </tbody>
+
+</table>
+
+@section Scripts {
+
+    @Scripts.Render("~/Scripts/DataTables/jquery.dataTables.js")
+    @Scripts.Render("~/Scripts/DataTables/dataTables.bootstrap.js")
+    <script>
+        $(document).ready(function () {
+            $('.table').DataTable();
+        });
+    </script>
+
+
+
+
+}
+
+<link href="~/Scripts/captain.css" rel="stylesheet" />
+
+
+<section class="cap-heading">
+    <h1> Coaches Gallery</h1>
+</section>
+
+<section class="wrapper">
+    <div class="card">
+
+        <img src="~/img/coach-img/dil.jpg" />
+
+        <div class="info">
+            <h1> Dillion Perara</h1>
+            <p> Women's head coach</p>
+
+        </div>
+    </div>
+
+    <div class="card">
+        <img src="~/img/coach-img/sachi.jpg" />
+        <div class="info">
+
+            <h1> Sachin SureshKumar</h1>
+            <p> Women's assistant coach</p>
+
+        </div>
+    </div>
+    <div class="card">
+
+        <img src="~/img/coach-img/linda.jpg" />
+        <div class="info">
+            <h1> Linda Machin</h1>
+            <p>Women's guest coach</p>
+        </div>
+
+    </div>
+</section>
+

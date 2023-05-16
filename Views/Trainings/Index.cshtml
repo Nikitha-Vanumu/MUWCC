@@ -1,0 +1,92 @@
+﻿@model IEnumerable<MonashUWCC.Models.Training>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+
+<link href="~/Content/mainclass.css" rel="stylesheet" />
+<div id="myCarousel" class="carousel slide" data-ride="carousel">
+   
+    <!-- Wrapper for slides -->
+    <div class="carousel-inner">
+
+        <div class="item active">
+            <img src="~/img/bg-img/4.jpeg">
+        </div>
+
+     </div>
+</div>
+
+<section class="caviar-about-us-area section-padding-150" id="about">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-12 col-md-6">
+
+                <img src="~/img/bg-img/121.jpg" />
+            </div>
+            <div class="col-12 col-md-6 col-lg-5 ml-md-auto">
+                <div class="section-heading">
+                    <h2>Training (September until March)</h2>
+                    <h3> Tuesday & Thursday Nights from 6PM </h3>
+                </div>
+                <div class="about-us-content">
+
+                    <p>At Frearson Oval, Monash University Clayton Campus, Wellington Rd & Blackburn Rd, Clayton, Victoria <br> At East Caulfield Reserve,MonashUniversity Caulfield Campus,Dandenong Road, Caulfield East , Victoria</p>
+                </div>
+            </div>
+        </div>
+        </div>
+        
+        <br>
+        <br>
+        
+                        <p><b>Contact Us</b></p>
+                        <p><b> Suki Ali (Women's 1st XI Captain)</b></p>
+                         <p><i class=" glyphicon glyphicon-envelope"> womens@gryphons.org.au </i><br><b>Dillon Perera (Women's Coach)</b></p>
+                         <p> <i class=" glyphicon glyphicon-earphone"> 0433487871 </i></p>
+                        <i class=" glyphicon glyphicon-envelope"> dp@gryphons.org.au</i>
+            
+        
+</section>
+
+<section>
+
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no" />
+    <script src="https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.js"></script>
+    <link href="https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.css" rel="stylesheet" />
+    <link href="https://api.mapbox.com/mapbox-gl/dist/mapbox-gl.css" rel="stylesheet" />
+    <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.0/mapbox-gl-directions.js"></script>
+    <link rel="stylesheet"
+          href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.0/mapbox-gl-directions.css"
+          type="text/css" />
+
+
+    <link href="~/Content/Map.css" rel="stylesheet" />
+
+
+    <div id="map"></div>
+    <script>
+        mapboxgl.accessToken = 'pk.eyJ1IjoibmlraXRoYS12YW51bXUiLCJhIjoiY2tndGF3NmNrMGR4NzMycTEyNTdjMWZhZyJ9.mKdq8bfa3lZdkGaaF6pbYQ';
+        var map = new mapboxgl.Map({
+            container: 'map', // container id
+            style: 'mapbox://styles/mapbox/streets-v11', // style URL
+            center: [145.133957, -37.907803], // starting position [lng, lat]
+            zoom: 10 // starting zoom
+        });
+        var marker = new mapboxgl.Marker()
+            .setLngLat([145.133957, -37.907803])// Clayton Location
+            .addTo(map);
+        var marker1 = new mapboxgl.Marker()
+            .setLngLat([145.046867, -37.879296])// Caufiled Location
+            .addTo(map);
+
+        map.addControl(
+            new MapboxDirections({
+                accessToken: mapboxgl.accessToken
+            }),
+            'top-left'
+        );
+
+    </script>
+    </section>
