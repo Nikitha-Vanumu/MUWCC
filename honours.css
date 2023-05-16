@@ -1,0 +1,81 @@
+﻿@import url('https://fonts.googleapis.com/css?family=Dancing+Script');
+
+.cap-heading h1 {
+    font-family: 'Dancing Script';
+    text-align: center;
+    font-size: 40px;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: 700;
+    line-height: 15.4px;
+}
+
+
+
+.container {
+    width: 1280px;
+    margin: 70px auto 0;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+    .container .box {
+        position: relative;
+        width: 300px;
+        height: 300px;
+        background: #007acc;
+        margin: 10px;
+        box-sizing: border-box;
+        display: inline-block;
+        
+    }
+
+
+
+        .container .box .imgBox {
+            position: relative;
+            overflow: hidden;
+        }
+
+            .container .box .imgBox img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                top: 0;
+                left: 0;
+                transition: transform 2s;
+            }
+
+        .container .box:hover .imgBox img {
+            transform: scale(1.2);
+        }
+
+        .container .box .details {
+            position: absolute;
+            top: 5px;
+            left: 5px;
+            bottom: 5px;
+            right: 5px;
+            background: rgba(0,0,0,.8);
+            transform: scaleY(0);
+            transition: transform .5s;
+        }
+
+        .container .box:hover .details {
+            transform: scaleY(1);
+        }
+
+
+        .container .box .details .content {
+            color: #fff;
+        }
+
+            .container .box .details .content h2 {
+                font-size: 20px;
+                color: #007acc;
+            }
+
+            .container .box .details .content h3 {
+                font-size: 15px;
+            }
